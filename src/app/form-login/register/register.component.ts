@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  ngSubmit(){
+  register(){
     this.signUpForm = new SignUpForm(
       this.form.name,
       this.form.username,
@@ -48,6 +48,8 @@ export class RegisterComponent implements OnInit {
       if(JSON.stringify(data)==JSON.stringify(this.success)){
         this.status = 'Create account success!'
       }
+    }, error => {
+      alert('khong thanh cong')
     })
   }
 }

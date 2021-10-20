@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-12" style="margin-top: 20px">
             <mat-card style="margin: 50px 0">
-                <form class="form-register" #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()" novalidate>
+                <form class="form-register" #f="ngForm" (ngSubmit)="f.form.valid && register()" novalidate>
                     <mat-error class="alert alert-primary">{{status}}</mat-error>
                     <!-- NAME -->
                     <mat-form-field style="width: 350px" appearance="outline">
