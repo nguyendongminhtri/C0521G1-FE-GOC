@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   form: any = {};
   signInForm: SignInForm;
   checkRegister = false;
+  checkLoginFailed = false;
   constructor(  private authService: AuthService,
                 private tokenService: TokenService,
                 private router: Router) { }
@@ -36,6 +37,8 @@ export class LoginComponent implements OnInit {
        this.router.navigate(['user-account']).then(()=>{
          window.location.reload();
        })
+     } else {
+       this.checkLoginFailed = true;
      }
    })
   }
