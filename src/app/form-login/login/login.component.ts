@@ -13,11 +13,15 @@ export class LoginComponent implements OnInit {
   hide = true;
   form: any = {};
   signInForm: SignInForm;
+  checkRegister = false;
   constructor(  private authService: AuthService,
                 private tokenService: TokenService,
                 private router: Router) { }
 
   ngOnInit(): void {
+   if(this.authService.getData()){
+     this.checkRegister = true;
+   }
   }
   ngSubmit(){
     this.signInForm = new SignInForm(

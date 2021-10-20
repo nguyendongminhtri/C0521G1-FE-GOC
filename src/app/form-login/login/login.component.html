@@ -3,6 +3,7 @@
         <div class="col-12" style="margin-top: 20px">
             <mat-card style="margin: 50px 0">
                 <form class="form-login" #f="ngForm" (ngSubmit)="f.form.valid&&ngSubmit()" novalidate>
+                    <mat-error *ngIf="checkRegister" class="alert alert-primary">Create Acount Succsee! Please login</mat-error>
                     <!-- USERNAME -->
                     <mat-form-field style="width: 350px" appearance="outline">
                         <mat-label>Username: </mat-label>

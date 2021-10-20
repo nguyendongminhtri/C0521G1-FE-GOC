@@ -13,7 +13,10 @@ export class UserAccountComponent implements OnInit {
   ngOnInit(): void {
   }
 logOut(){
+  // console.log('goi log out');
+  //   this.tokenService.logOut();
   console.log('goi log out');
-    this.tokenService.logOut();
+  window.sessionStorage.clear();
+  window.location.reload()
 }
 }
