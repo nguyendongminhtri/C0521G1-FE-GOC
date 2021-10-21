@@ -181,4 +181,10 @@ export class HomeComponent {
     this.msaapDisablePositionSlider = event.checked;
   }
   // End: Required for demo purpose
+  onChangeAvatar($event){
+    console.log('avatar --> ', $event);
+  }
+  onChangeFile($event){
+    console.log('File MP3 -->', $event);
+  }
 }

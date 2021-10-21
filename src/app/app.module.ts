@@ -27,12 +27,24 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { LoginComponent } from './form-login/login/login.component';
 import { UserAccountComponent } from './form-login/user-account/user-account.component';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+// @ts-ignore
+import {AngularFireModule} from '@angular/fire';
+import {environment} from '../environments/environment.prod';
+import { UploadAvatarComponent } from './upload/upload-avatar/upload-avatar.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { UploadFileComponent } from './upload/upload-file/upload-file.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { ChangeAvatarComponent } from './form-login/change-avatar/change-avatar.component';
+import {httpInterceptorProviders} from './security/auth.interceptor';
+
 
 export const appRoutes: Routes = [
   { path: '', component: HomeComponent, data: { title: 'Home' } },
   { path: 'register', component: RegisterComponent, data: {title: 'Register'}},
   { path: 'login', component: LoginComponent},
   { path: 'user-account', component: UserAccountComponent},
+  { path: 'change-avatar', component: ChangeAvatarComponent},
   {
     path: 'guide/getting-started',
     component: GettingStartedComponent,
@@ -41,7 +53,7 @@ export const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, UploadAvatarComponent, UploadFileComponent, ChangeAvatarComponent,],
   imports: [
     FormsModule,
     MatInputModule,
@@ -55,11 +67,13 @@ export const appRoutes: Routes = [
     MatSlideToggleModule,
     MatButtonModule,
     BrowserAnimationsModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     NavBarModule, FooterModule,
     NgxAudioPlayerModule,
-    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule
+    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatProgressBarModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -30,6 +30,13 @@
          alt="">
     FrontEnd
   </a>
+  <a *ngIf="checkLogin" style="color: springgreen; text-decoration: none;"
+     aria-label="Angular Audio Player"
+     mat-button tabindex="0" aria-disabled="false" routerLink="change-avatar"><span class="mat-button-wrapper">
+        <img  style="border-radius: 50%" alt="angular" class="image-change" [src]=avatar width="40px" height="40px"></span>
+    <div class="mat-button-ripple mat-ripple" matripple=""></div>
+    <div class="mat-button-focus-overlay"></div>
+  </a><span class="example-spacer"></span>
   <a mat-icon-button class="docs-button docs-navbar-show-small" href="https://github.com/vmudigal/ngx-audio-player"
     aria-label="GitHub Repository">
     <img class="docs-angular-logo" src="https://raw.githubusercontent.com/vmudigal/ngx-audio-player/master/src/assets/images/logos/angular/github-circle-white-transparent.svg"
