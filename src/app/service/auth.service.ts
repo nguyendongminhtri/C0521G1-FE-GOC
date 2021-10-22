@@ -11,13 +11,14 @@ import {JwtResponse} from '../model/JwtResponse';
 })
 export class AuthService {
   //API LOCAL
-  private API_SIGNUP = environment.API_LOCAL + 'signup';
-  private API_SIGNIN = environment.API_LOCAL + 'signin';
-  private API_CHANGE_AVATAR = environment.API_LOCAL + 'change-avatar';
+  // private API_SIGNUP = environment.API_LOCAL + 'signup';
+  // private API_SIGNIN = environment.API_LOCAL + 'signin';
+  // private API_CHANGE_AVATAR = environment.API_LOCAL + 'change-avatar';
   //API SERVER
   data: boolean;
-  // private API_SIGNUP = environment.API_SERVER + 'signup';
-  // private API_SIGNIN = environment.API_SERVER + 'signin';
+  private API_SIGNUP = environment.API_SERVER + 'signup';
+  private API_SIGNIN = environment.API_SERVER + 'signin';
+  private API_CHANGE_AVATAR = environment.API_SERVER + 'change-avatar';
   constructor(private http: HttpClient) { }
   signUp(signUp: SignUpForm): Observable<any>{
     return this.http.post<any>(this.API_SIGNUP,signUp);
