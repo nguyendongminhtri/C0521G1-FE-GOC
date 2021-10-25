@@ -41,6 +41,9 @@ import { CreateCategoryComponent } from './content/categoryManage/create-categor
 import { PageCategoryComponent } from './content/categoryManage/page-category/page-category.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import { UpdateCategoryComponent } from './content/categoryManage/update-category/update-category.component';
+import { DialogComponent } from './content/categoryManage/dialog/dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 export const appRoutes: Routes = [
@@ -51,6 +54,7 @@ export const appRoutes: Routes = [
   { path: 'change-avatar', component: ChangeAvatarComponent},
   { path: 'create-category', component: CreateCategoryComponent},
   {path: 'page-category', component: PageCategoryComponent},
+  {path: 'update-category/:id',component: UpdateCategoryComponent},
   {
     path: 'guide/getting-started',
     component: GettingStartedComponent,
@@ -59,7 +63,7 @@ export const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, UploadAvatarComponent, UploadFileComponent, ChangeAvatarComponent, CreateCategoryComponent, PageCategoryComponent,],
+  declarations: [AppComponent, HomeComponent, GettingStartedComponent, RegisterComponent, LoginComponent, UserAccountComponent, UploadAvatarComponent, UploadFileComponent, ChangeAvatarComponent, CreateCategoryComponent, PageCategoryComponent, UpdateCategoryComponent, DialogComponent,],
   imports: [
     FormsModule,
     MatInputModule,
@@ -77,7 +81,7 @@ export const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     NavBarModule, FooterModule,
     NgxAudioPlayerModule,
-    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatProgressBarModule, MatPaginatorModule, Ng2SearchPipeModule
+    RouterModule.forRoot(appRoutes, {useHash: false}), MatFormFieldModule, ReactiveFormsModule, MatProgressSpinnerModule, MatProgressBarModule, MatPaginatorModule, Ng2SearchPipeModule, MatDialogModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

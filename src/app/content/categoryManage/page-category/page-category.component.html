@@ -11,6 +11,12 @@
                 </div>
                 <div class="row" >
                     <div class="column" *ngFor="let ctg of categories |filter:searchText">
+                        <button [routerLink]="['/update-category/',ctg.id]" mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+                            <mat-icon color="primary">edit</mat-icon>
+                        </button>
+                        <button (click)="openDialog(ctg.id)" mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+                            <mat-icon color="warn">delete</mat-icon>
+                        </button>
                         <div class="card">
                             <i style="font-size: 1.5vw; color: crimson">{{ctg.nameCategory}}</i>
                             <img class="img" [src]="ctg.avatarCategory">
